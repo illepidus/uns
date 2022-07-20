@@ -1,0 +1,140 @@
+body {
+	margin: 0;
+	padding: 0;
+	color: #000;
+	background: #FFF;
+}
+
+td {
+	padding-right: 10px;
+}
+
+#station {
+	margin: 1em;
+	padding: 1em;
+	width: 708px;
+	border: 2px solid black;
+}
+
+#filling_points {
+	width: 100%;
+}
+
+#links {
+	padding-left: 1em;
+}
+
+a {
+	margin-right: 10px; 
+	color: #00F;
+}
+
+.server_down {
+	color: #777;
+}
+
+.spacer-div {
+	clear:both;
+}
+
+.bal_code {
+	border-bottom: 1px dashed #000080;
+}
+
+.filling_point {
+	float: left;
+	margin: 1em;
+	padding: 1em;
+	border: 2px solid black;
+	width: 320px;
+}
+
+.tank {
+	float: left;
+	margin: 1em;
+	padding: 1em;
+	border: 2px solid black;
+	width: 320px;
+}
+
+.device_name {
+	font-weight: bold;
+}
+
+.code_input {
+	font-family: monospace;
+}
+
+/* 
+enum DEVICE_STATE {
+0	OFF,
+1	ON,
+2	UNKNOWN,
+3	ERROR,
+4	HANGED,
+5	WAITING,
+6	UP,
+7	DOWN,
+8	EMPTY,
+9	MAINTENANCE,
+10	EQUIPPED,
+11	READY,
+12	OVERWEIGHT,
+13	STOPPED
+};
+ */
+
+[data-state="0"]{ /*OFF*/
+	font-weight: bold;
+	color: #000;
+}
+ 
+[data-state="1"]{ /*ON*/
+	font-weight: bold;
+	color: #090;
+}
+ 
+[data-state="2"]{ /*UNKNOWN*/
+	font-weight: bold;
+	color: #777;
+}
+
+[data-state="3"]{ /*ERROR*/
+	font-weight: bold;
+	color: #900;
+}
+
+[data-state="4"]{ /*HANGED*/
+	font-weight: bold;
+	color: #E3E;
+}
+
+[data-state="8"]{ /*EMPTY*/
+	font-weight: bold;
+	color: #000;
+}
+
+[data-state="9"]{ /*MAINTENANCE*/
+	font-weight: bold;
+	color: #F70;
+}
+
+[data-state="10"]{ /*EQUIPPED*/
+	font-weight: bold;
+	color: #BB0;
+}
+
+[data-state="11"]{ /*READY*/
+	font-weight: bold;
+	color: #07F;
+}
+
+[data-state="12"]{ /*OVERWEIGHT*/
+	font-weight: bold;
+	color: #0A0;
+}
+
+[data-state="13"]{ /*STOPPED*/
+	font-weight: bold;
+	color: #B33;
+}

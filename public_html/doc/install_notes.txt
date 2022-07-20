@@ -1,0 +1,30 @@
+﻿1. Записываем образ raspbian на micro SD карту. В моём случае это был 2017-01-11-raspbian-jessie-lite.img с помощью Win32DiskImager.
+2. Создать пустой файл "ssh" в корне флешки.
+3-1. Подключить к сети с автоприсвоением IP адрессов.
+3-2. Добавить в /etc/dhcpcd.conf:
+interface eth0
+        static ip_address=192.168.3.22/24
+        static routers=192.168.3.1
+        static domain_name_servers=192.168.1.1
+interface wlan0
+        static ip_address=192.168.3.22/24
+        static routers=192.168.3.1
+        static domain_name_servers=192.168.1.1
+3-3. (Wi-Fi) Добавить в /etc/wpa_supplicant/wpa_supplicant.conf
+network={
+    ssid="Engineer"
+    psk="149162536"
+}
+3-4. Перезагрузиться и подключиться к сети Марусино.
+4. ~sudo raspi-config
+Interfacing options -> Отключить всё кроме SSH
+5-1. sudo adduser illepidus
+5-2. sudo visudo
+5-3. sudo usermod -aG gpio illepidus
+5-4. sudo usermod -aG dialout illepidus
+# User privilege specification
+root  		ALL=(ALL:ALL) ALL
+illepidus	ALL=NOPASSWD: ALL
+6. sudo apt-get update
+7. sudo apt-get upgrade
+8. sudo apt-get install zip daemon wiringpi lighttpd php5-dev php5-cgi php5-curl gcc g++ qtdeclarative5-dev qtbase5-dev qt5-default libqt5serialport5-dev python-serial linux-source make
