@@ -1,5 +1,5 @@
 # UNS
-1. Записываем образ raspbian на micro SD карту. В моём случае это был [2023-05-03-raspios-bullseye-armhf-lite.img](https://www.raspberrypi.com/software/operating-systems/) с помощью [Raspberry Pi Imager](https://www.raspberrypi.com/software/).
+1. Записываем [образ raspbian](https://www.raspberrypi.com/software/operating-systems/) на micro SD карту с помощью [Raspberry Pi Imager](https://www.raspberrypi.com/software/).
 2. Нажать на шестерёнку и установить
 	* Hostname: `uns`
 	* Enable SSH: `true`
@@ -23,4 +23,4 @@ static domain_name_servers=192.168.1.1 8.8.8.8
 	* Создать пару ключей `ssh-keygen`
 	* Добавить публичный ключ `.ssh/id_rsa.pub` в [список разрешенных](https://github.com/settings/keys)
 10. Переместиться в склонированный репозиторий `cd ~/uns`
-11. 
+11. Выполняем скрипт первоначальной настройки `sudo script/init.sh`
