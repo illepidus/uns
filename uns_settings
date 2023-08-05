@@ -119,11 +119,11 @@ pin=17
 pin=27
 
 [MODBUS_1]
-device_file=/dev/ttyUSB0
+device_file=/dev/ttyRS485-0
 #statistics_interval=10000
 
 [MODBUS_2]
-device_file=/dev/ttyUSB1
+device_file=/dev/ttyRS485-1
 #statistics_interval=10000
 
 [UNS_UNIT_1]

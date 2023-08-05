@@ -21,11 +21,23 @@ static domain_name_servers=192.168.1.1 8.8.8.8
 ```
 6. Вставить Ethernet кабель и презагрузиться `sudo reboot`
 7. Запускаем `sudo raspi-config`, переходим `Interface Options` и отключаем всё кроме SSH
-7. Установить git `sudo apt install git`
-8. Клонировать репозиторий `git clone git@github.com:illepidus/uns.git`
+8. Установить git `sudo apt install git`
 9. На текущий момент репозиторий запривачен, поэтому: 
 	* Создать пару ключей `ssh-keygen`
 	* Добавить публичный ключ `.ssh/id_rsa.pub` в [список разрешенных](https://github.com/settings/keys)
-10. Переместиться в склонированный репозиторий `cd ~/uns`
-11. Выполняем скрипт первоначальной настройки `sudo init.sh`
-12. Если всё в порядке перегружаем на всякий случай `sudo reboot` и работаем
+10. Клонировать репозиторий `git clone git@github.com:illepidus/uns.git`
+11. Закрепляем за RS-485<->USB адаптерами их номера
+	* Выполняем команды и запоминаем их ID_PATH
+	```
+	udevadm info /dev/ttyUSB0 | grep ID_PATH=
+	udevadm info /dev/ttyUSB1 | grep ID_PATH=
+	```
+	* `sudo nano /etc/udev/rules.d/99-uns.rules`
+	```
+	SUBSYSTEM=="tty", ENV{ID_PATH}=="platform-3f980000.usb-usb-0:1.3:1.0", SYMLINK+="ttyRS485-0"
+	SUBSYSTEM=="tty", ENV{ID_PATH}=="platform-3f980000.usb-usb-0:1.5:1.0", SYMLINK+="ttyRS485-1"
+	```
+12. Перезагружаемся
+13. Переместиться в склонированный репозиторий `cd ~/uns`
+14. Выполняем скрипт первоначальной настройки `sudo init.sh`
+15. Если всё в порядке перегружаем на всякий случай `sudo reboot` и работаем
