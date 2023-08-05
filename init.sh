@@ -1,29 +1,20 @@
 #!/bin/bash
 
 # fail on first error
-set -e
-
-echo $SUDO_USER
-
-#check if sudo
-if [[ -z $SUDO_USER ]]; then
-  echo "run this as sudo" 
-  exit 1
-fi
+# set -e
 
 #install wiringpi (as it's already deprecated and excluded from bull raspbian bullseye)
 wget -nc https://github.com/WiringPi/WiringPi/releases/download/2.61-1/wiringpi-2.61-1-armhf.deb
-chown $SUDO_USER wiringpi-2.61-1-armhf.deb
-dpkg -i wiringpi-2.61-1-armhf.deb
+sudo dpkg -i wiringpi-2.61-1-armhf.deb
 
 #grant rights
-usermod -aG gpio $SUDO_USER
-usermod -aG dialout $SUDO_USER
+sudo usermod -aG gpio $USER
+sudo usermod -aG dialout $USER
 
 #install packages
-apt update
-apt upgrade
-apt install -y \
+sudo apt update
+sudo apt upgrade
+sudo apt install -y \
   zip \
   daemon \
   wiringpi \
@@ -39,4 +30,35 @@ apt install -y \
   qtbase5-dev-tools \
   qt5-qmake \
   linux-source \
-  make
+  make \
+  wireguard
+
+#make
+./cleanmake.sh
+
+#Install
+sudo killall -q uns
+sudo daemon --name=uns --stop
+sudo cp uns_settings /etc/uns_settings
+sudo cp bin/uns /usr/local/bin/uns
+
+#autostart
+sudo cp etc/rc.local /etc/rc.local
+
+#start daemon
+./daemon.sh
+
+#web server
+sudo cp etc/lighttpd.conf /etc/lighttpd/lighttpd.conf
+sudo cp etc/lighttpd-plain.user /etc/lighttpd/lighttpd-plain.user
+sudo cp -r www/* /var/www
+sudo lighty-enable-mod fastcgi 
+sudo lighty-enable-mod fastcgi-php
+sudo service lighttpd restart
+
+#wireguard
+sudo cp etc/wg0.conf /etc/wireguard/wg0.conf
+wg-quick up wg0
+sudo systemctl enable wg-quick@wg0
+
+echo "Init compleated"

@@ -1,4 +1,7 @@
 # UNS
+Устройство: Raspberry Pi 3 Model B Rev. a02082
+Установленный образ: 2023-05-03-raspios-bullseye-armhf-lite
+
 1. Записываем [образ raspbian](https://www.raspberrypi.com/software/operating-systems/) на micro SD карту с помощью [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
 2. Нажать на шестерёнку и установить
 	* Hostname: `uns`
@@ -25,7 +28,4 @@ static domain_name_servers=192.168.1.1 8.8.8.8
 	* Добавить публичный ключ `.ssh/id_rsa.pub` в [список разрешенных](https://github.com/settings/keys)
 10. Переместиться в склонированный репозиторий `cd ~/uns`
 11. Выполняем скрипт первоначальной настройки `sudo init.sh`
-12. Компиллируем проект `cleanmake.sh`
-13. Запускаем сервер в режиме отладки `run.sh`
-14. Если нет бесконечного потока ошибок, жмём `Ctrl` + `C`
-15. Запускаем сервер в режиме демона `daemon.sh`
+12. Если всё в порядке перегружаем на всякий случай `sudo reboot` и работаем
