@@ -2,17 +2,17 @@
 Устройство: Raspberry Pi 3 Model B Rev. a02082
 Установленный образ: 2023-05-03-raspios-bullseye-armhf-lite
 
-1. Записываем [образ raspbian](https://www.raspberrypi.com/software/operating-systems/) на micro SD карту с помощью [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
-2. Нажать на шестерёнку и установить
+1. Записываем [образ raspbian](https://www.raspberrypi.com/software/operating-systems/) на micro SD карту с помощью [Raspberry Pi Imager](https://www.raspberrypi.com/software/)<br>Я пробовал Debian version: 12 (bookworm) -- по простому не завелась.
+3. Нажать на шестерёнку и установить
 	* Hostname: `uns`
 	* Enable SSH: `true`
 	* Username: `ivan`
 	* Password: `6177`
 	* WLAN SSID: `Engineer`
 	* WLAN PASS: `149162536`
-3. Вставляем SD карту и подаём питание. Должно подключиться к настроеной сети (удобно раздать со смартфона)
-4. Подключиться по SSH
-5. Добавить в /etc/dhcpcd.conf:
+4. Вставляем SD карту и подаём питание. Должно подключиться к настроеной сети (удобно раздать со смартфона)
+5. Подключиться по SSH
+6. Добавить в /etc/dhcpcd.conf:
 ```
 interface eth0
 static ip_address=192.168.3.22/24
