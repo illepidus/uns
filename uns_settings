@@ -28,6 +28,11 @@ B05/empty_tank_weight_delta=5.5
 B05/gas_weight=0.4
 B05/rack_weight=9.5
 
+#Двадцатилитровый 1 кг (смесь)
+B1/empty_tank_weight=32.5
+B1/empty_tank_weight_delta=12.5
+B1/gas_weight=0.8
+
 #Сорокалитровый 2 кг (смесь)
 B2/empty_tank_weight=76.0
 B2/empty_tank_weight_delta=20.0
