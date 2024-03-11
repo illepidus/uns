@@ -47,6 +47,7 @@
       <TD class="rr"><xsl:value-of select="format-number(*[1]/GAS2, '#', 'nan')"/></TD>
     </TR>
     <xsl:call-template name="sum"><xsl:with-param name="m" select="'B05'"/></xsl:call-template>
+    <xsl:call-template name="sum"><xsl:with-param name="m" select="'B1'"/></xsl:call-template>
     <xsl:call-template name="sum"><xsl:with-param name="m" select="'B2'"/></xsl:call-template>
     <xsl:call-template name="sum"><xsl:with-param name="m" select="'B024'"/></xsl:call-template>
     <xsl:call-template name="sum"><xsl:with-param name="m" select="'B3'"/></xsl:call-template>
@@ -147,9 +148,10 @@
   <xsl:choose>
    <xsl:when test="$m = 'B024'">2.40кг - 04л (баллон 150/225 атм)</xsl:when>
     <xsl:when test="$m = 'B05'">0.50кг - 10л (заготовка 80А2У)</xsl:when>
-     <xsl:when test="$m = 'B2'">2.00кг - 40л (заготовка 80А2У)</xsl:when>
-     <xsl:when test="$m = 'B3'">3.00кг - 05л (баллон 150/225 атм)</xsl:when>
-     <xsl:when test="$m = 'B6'">6.00кг - 10л (баллон 150/225 атм)</xsl:when>
+    <xsl:when test="$m = 'B1'">1.00кг - 20л (заготовка 80А2У)</xsl:when>
+    <xsl:when test="$m = 'B2'">2.00кг - 40л (заготовка 80А2У)</xsl:when>
+    <xsl:when test="$m = 'B3'">3.00кг - 05л (баллон 150/225 атм)</xsl:when>
+    <xsl:when test="$m = 'B6'">6.00кг - 10л (баллон 150/225 атм)</xsl:when>
     <xsl:when test="$m = 'B12'">12.0кг - 20л (баллон 150/225 атм)</xsl:when>
     <xsl:when test="$m = 'B19'">19.0кг - 40л (баллон 125/190 атм)</xsl:when>
     <xsl:when test="$m = 'B24'">24.0кг - 40л (баллон 150/225 атм)</xsl:when>
