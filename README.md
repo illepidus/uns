@@ -20,7 +20,7 @@ static routers=192.168.3.1
 static domain_name_servers=192.168.1.1 8.8.8.8
 ```
 6. Вставить Ethernet кабель и презагрузиться `sudo reboot`
-7. Запускаем `sudo raspi-config`, переходим `Interface Options` и отключаем всё кроме SSH
+7. Запускаем `sudo raspi-config`, переходим `Interface Options` и отключаем всё кроме SSH (Serial port по умолчанию включен)
 8. Установить git `sudo apt install git`
 9. На текущий момент репозиторий запривачен, поэтому: 
 	* Создать пару ключей `ssh-keygen`
