@@ -30,8 +30,7 @@ sudo apt install -y \
   qtbase5-dev-tools \
   qt5-qmake \
   linux-source \
-  make \
-  wireguard
+  make
 
 #make
 ./cleanmake.sh
