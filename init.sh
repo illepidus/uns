@@ -50,6 +50,8 @@ sudo cp etc/rc.local /etc/rc.local
 #web server
 sudo cp etc/lighttpd.conf /etc/lighttpd/lighttpd.conf
 sudo cp etc/lighttpd-plain.user /etc/lighttpd/lighttpd-plain.user
+sudo cp etc/99-uns.rules /etc/udev/rules.d/99-uns.rules
+
 sudo cp -r www/* /var/www
 sudo lighty-enable-mod fastcgi 
 sudo lighty-enable-mod fastcgi-php
